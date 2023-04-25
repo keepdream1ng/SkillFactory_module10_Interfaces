@@ -33,8 +33,12 @@ namespace ConsoleCalculator
                 try
                 {
                     input = Console.ReadLine();
-                    _logger.Event($"Taken input in form of string:{input}");
-                    if (IsItValidNum(input, out output)) return output;
+                    _logger.Event($"Taken input in form of string: {input}");
+                    if (IsItValidNum(input, out output))
+                    {
+                        _logger.Event($"{output} is a valid number!");
+                        return output;
+                    }
                     throw new FormatException("Format exception: please type correct number");
                 }
                 catch (FormatException ex)
